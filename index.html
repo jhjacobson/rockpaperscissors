@@ -8,7 +8,8 @@
 
 <body>
     <script>
-        let capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        let correctCapitalization = (string) => string.charAt(0).toUpperCase() + 
+                string.slice(1).toLowerCase();
         
         //button.onclick = function(){
             // Function that gets user input from clicking a button in the HTML
@@ -22,14 +23,16 @@
                 gameResult = updateGameResult(roundResult,gameResult);
             }
 
-            console.log(`Final Results: You have ${gameResult[0]} wins, ${gameResult[1]} losses, and ${gameResult[2]} ties.`)
+            console.log(`Final Results: You have ${gameResult[0]} wins, 
+                    ${gameResult[1]} losses, and ${gameResult[2]} ties.`);
         }
 
         function playRound() {
             let playerSelection = prompt("Choose Rock, Paper, or Scissors.");
+            playerSelection = correctCapitalization(playerSelection); 
             let computerSelection = getComputerChoice();
-            let result = resultRound(playerSelection,computerSelection);
-            console.log(printRound(playerSelection,computerSelection,result));
+            let result = getRoundResult(playerSelection,computerSelection);
+            console.log(printRoundResult(playerSelection,computerSelection,result));
             return result;
         }
 
@@ -37,6 +40,34 @@
             let choice = Math.floor(Math.random() * 3);
             let options = ["Rock","Paper","Scissors"];
             return options[choice];
+        }
+
+        function getRoundResult(playerSelection,computerSelection) {
+            if(playerSelection === computerSelection) {
+                return "tie";
+            }
+            else if((playerSelection === "Rock" && computerSelection === "Scissors") ||
+                    (playerSelection === "Scissors" && computerSelection === "Paper") ||
+                    (playerSelection === "Paper" && computerSelection === "Rock")){
+                        return "win";
+                    }
+            else {
+                return "lose";
+            }   
+        }
+
+        function printRoundResult(playerSelection,computerSelection,result) {
+            switch(result) {
+                case "win":
+                    return `You Win! ${playerSelection} beats ${computerSelection}.`;
+                    break;
+                case "lose":
+                    return `You Lose! ${computerSelection} beats ${playerSelection}.`;
+                    break;
+                case "tie":
+                    return `You tie! You both chose ${playerSelection}`;
+            }
+
         }
 
         function updateGameResult(roundResult,gameResult) {
@@ -52,36 +83,6 @@
             }
             return gameResult;
         }
-
-        function resultRound(playerSelection,computerSelection) {
-            playerSelection = capitalize(playerSelection);
-            if(playerSelection === computerSelection) {
-                return "tie";
-            }
-            else if((playerSelection === "Rock" && computerSelection === "Scissors") ||
-                    (playerSelection === "Scissors" && computerSelection === "Paper") ||
-                    (playerSelection === "Paper" && computerSelection === "Rock")){
-                        return "win";
-                    }
-            else {
-                return "lose";
-            }   
-        }
-
-        function printRound(playerSelection,computerSelection,result) {
-            switch(result) {
-                case "win":
-                    return `You Win! ${playerSelection} beats ${computerSelection}.`;
-                    break;
-                case "lose":
-                    return `You Lose! ${computerSelection} beats ${playerSelection}.`;
-                    break;
-                case "tie":
-                    return `You tie! You both chose ${playerSelection}`;
-            }
-
-        }
-
 
     </script>
 

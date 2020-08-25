@@ -15,8 +15,14 @@ userChoices.forEach((button) => {
         }
 
         if (gameResult[3] == MAXROUNDS) {
-            gameResultPara.textContent = `Final Results: You have ${gameResult[0]} wins, 
-            ${gameResult[1]} losses, and ${gameResult[2]} ties.`
+            let winForm = "wins";
+            let lossForm = "losses";
+            let tieForm = "ties";
+            if (gameResult[0] == 1) {winForm = "win"};
+            if (gameResult[1] == 1) {lossForm = "loss"};
+            if (gameResult[2] == 1) {tieForm = "tie"};
+            gameResultPara.textContent = `Final Results: You have ${gameResult[0]} ${winForm}, 
+            ${gameResult[1]} ${lossForm}, and ${gameResult[2]} ${tieForm}.`
             gameResult = [0,0,0,0];
         }
     });

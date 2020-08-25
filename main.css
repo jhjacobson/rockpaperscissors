@@ -1,0 +1,35 @@
+button:hover {
+    border-color: black;
+    border-width: 1px;
+    background-color: rgb(228, 224, 224);
+}
+
+button {
+    border-color: black;
+    border-width: 0px;
+    background-color: rgb(228, 224, 224);
+    border-radius: 4px;
+    height: 50%;
+    font-size: 1.5em;
+    margin-left: 25px;
+    width: 15%;
+}
+
+#roundResult {
+    text-align: center;
+    margin-top: 5em;
+}
+
+#gameResult {
+    text-align: center;
+    margin-top: 5em;
+}
+
+#buttons {
+    margin-top: 3em;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}

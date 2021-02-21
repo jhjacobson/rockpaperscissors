@@ -1,35 +1,82 @@
-button:hover {
-    border-color: black;
-    border-width: 1px;
-    background-color: rgb(228, 224, 224);
-}
-
-button {
-    border-color: black;
-    border-width: 0px;
-    background-color: rgb(228, 224, 224);
-    border-radius: 4px;
-    height: 50%;
-    font-size: 1.5em;
-    margin-left: 25px;
-    width: 15%;
-}
-
-#roundResult {
-    text-align: center;
-    margin-top: 5em;
-}
-
-#gameResult {
-    text-align: center;
-    margin-top: 5em;
-}
-
-#buttons {
-    margin-top: 3em;
-    text-align: center;
-}
-
-h1 {
-    text-align: center;
-}
+ main {
+     display: grid;
+     grid-template-areas: "buttons" "game-history" "round-result" "game-result";
+     grid-template-rows: 40vh 20vh 14vh 14vh;
+     align-items: center;
+ }
+ 
+ button:hover {
+     border-color: black;
+     border-width: 0.5vh;
+     background-color: rgb(228, 224, 224);
+ }
+ 
+ button {
+     border-color: black;
+     border-width: 0px;
+     background-color: rgb(228, 224, 224);
+     border-radius: 1vh;
+     height: 10vh;
+     font-size: 5vh;
+     margin-left: 25px;
+     width: 50vw;
+     border: 0.5vh solid transparent;
+     /* prevents shifting of elements when hovering*/
+ }
+ 
+ #roundResult {
+     text-align: center;
+     grid-area: round-result;
+     background-color: lightgreen;
+     font-size: 5vh;
+ }
+ 
+ #gameResult {
+     text-align: center;
+     grid-area: game-result;
+     background-color: lightpink;
+     font-size: 5vh;
+ }
+ 
+ #buttons {
+     text-align: center;
+     grid-area: buttons;
+     background-color: lightblue;
+     display: grid;
+     grid-template-areas: "rock" "paper" "scissors";
+     grid-template-rows: 13vh 13vh 13vh;
+     align-items: center;
+     justify-items: center;
+ }
+ 
+ #game-history {
+     display: grid;
+     grid-template-areas: "player-choices computer-choices";
+     grid-template-columns: 50vw 50vw;
+     grid-template-rows: 20vh;
+     justify-items: center;
+     align-items: start;
+     white-space: pre-line;
+     font-size: 1.5vh;
+     background-color: lightsalmon;
+ }
+ 
+ #player-choices {
+     grid-area: player-choices;
+ }
+ 
+ #computer-choices {
+     grid-area: computer-choices;
+ }
+ 
+ #Rock {
+     grid-area: rock;
+ }
+ 
+ #Paper {
+     grid-area: paper;
+ }
+ 
+ #Scissors {
+     grid-area: scissors;
+ }

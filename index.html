@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="main.css">
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
 
 </head>
 
 <body>
-    <h1>Rock, Paper, Scissors</h1>
+    <main>
+        <div id="buttons">
+            <button id="Rock">Rock</button>
+            <button id="Paper">Paper</button>
+            <button id="Scissors">Scissors</button>
+        </div>
 
-    <div id="buttons">
-        <button id="Rock">Rock</button>
-        <button id="Paper">Paper</button>
-        <button id="Scissors">Scissors</button>
-    </div>
-
-    <div id="roundResult"></div>
-    <div id="gameResult"></div>
-
+        <div id="game-history">
+            <div id="playerChoices">Player Choices</div>
+            <div id="computerChoices">Computer Choices</div>
+        </div>
+        <div id="roundResult"></div>
+        <div id="gameResult"></div>
+    </main>
 
     <script type="text/javascript" src="js/gameplay.js"></script>
-
 </body>
 
 </html>
